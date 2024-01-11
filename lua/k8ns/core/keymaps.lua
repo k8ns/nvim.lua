@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>wx", ":close<CR>")    -- close current split window
 
 vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<Enter>")
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<Enter>")
-vim.keymap.set("n", "<leader>t", ":ToggleTerm<Enter>")
+-- vim.keymap.set("n", "<leader>t", ":ToggleTerm<Enter>")
 
 -- vim.keymap.set("n", "<leader>g", ":GitBlameToggle<Enter>")
 
@@ -46,7 +46,8 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>fa', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end, { desc = '[S]earch [G]rep' })
+-- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })

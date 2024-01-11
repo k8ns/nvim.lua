@@ -9,7 +9,17 @@ require("lualine").setup{
         lualine_c = {
             'filesize',
             {
-                "filename", 
+                "filename",
+                path = 1
+            }
+        },
+        lualine_x = {'searchcount', 'encoding', 'fileformat', 'filetype'},
+    },
+    inactive_sections = {
+        lualine_c = {
+            'filesize',
+            {
+                "filename",
                 path = 1
             }
         },
