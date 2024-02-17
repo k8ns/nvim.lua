@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
     ensure_installed = {
         "bash",
         "c",
@@ -37,6 +37,10 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true,
     },
+    modules = {},
+    ignore_install = { "javascript" },
+    auto_install = true,
+    sync_install = false,
     autotag = {
         enable = true,
         filetypes = {
@@ -50,4 +54,4 @@ require'nvim-treesitter.configs'.setup {
             "xml",
         },
     },
-}
+})

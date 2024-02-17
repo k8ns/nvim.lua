@@ -3,9 +3,11 @@ vim.g.mapleader = " "
 -- vim.keymap.set("n", "j", "jzz")
 -- vim.keymap.set("n", "k", "kzz")
 
-
+-- golang
 vim.keymap.set("n", "<leader>j", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
 vim.keymap.set("n", "<leader>y", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 
 
 vim.keymap.set("v", "<leader>bb", "<Esc>:'<,'>:!base64<CR>")

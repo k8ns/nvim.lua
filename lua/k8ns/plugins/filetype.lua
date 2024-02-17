@@ -7,9 +7,9 @@ end
 filetype.setup({
     overrides = {
         extensions = {
-            -- Set the filetype of *.pn files to potion
             tfstate = "json",
-            tf = "terraform"
+            tf = "terraform",
+            ddl = "sql"
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua

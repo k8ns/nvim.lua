@@ -43,7 +43,7 @@ return packer.startup(function(use)
     -- FILES and NAVIGATION
 
     -- file types
-    -- use("nathom/filetype.nvim")
+    use("nathom/filetype.nvim")
 
     use("christoomey/vim-tmux-navigator")
 
@@ -61,7 +61,6 @@ return packer.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-
 
 
     -- use ("akinsho/toggleterm.nvim", {tag = '*'})
