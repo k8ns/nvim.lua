@@ -9,16 +9,19 @@ filetype.setup({
         extensions = {
             tfstate = "json",
             tf = "terraform",
-            ddl = "sql"
+            ddl = "sql",
+            up_sql = "sql"
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua
         --     MyBackupFile = "lua",
         -- },
-        -- complex = {
-        --     -- Set the filetype of any full filename matching the regex to gitconfig
-        --     [".*git/config"] = "gitconfig", -- Included in the plugin
-        -- },
+        complex = {
+            -- Set the filetype of any full filename matching the regex to gitconfig
+            -- [".*git/config"] = "gitconfig", -- Included in the plugin
+            ['.*%.up%.sql'] = 'sql', -- Matches files ending with .up.sql
+            ['.*%.down%.sql'] = 'sql', -- Matches files ending with .down.sql
+        },
         --
         -- -- The same as the ones above except the keys map to functions
         -- function_extensions = {

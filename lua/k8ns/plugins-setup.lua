@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -52,9 +52,9 @@ return packer.startup(function(use)
     use("nvim-tree/nvim-tree.lua")
 
     -- telescope
-    use({"nvim-lua/plenary.nvim"})
-    use({"nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-    use({"nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+    use({ "nvim-lua/plenary.nvim" })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })       -- fuzzy finder
 
     -- use({"notomo/cmdbuf.nvim"})
     use {
@@ -66,20 +66,20 @@ return packer.startup(function(use)
     -- use ("akinsho/toggleterm.nvim", {tag = '*'})
     use 'mg979/vim-visual-multi'
 
-    -- CODING  
+    -- CODING
 
     -- REST
     use("rest-nvim/rest.nvim")
 
 
     -- git
-    use ("lewis6991/gitsigns.nvim")
+    use("lewis6991/gitsigns.nvim")
 
     -- commenting with gcc
     use("numToStr/Comment.nvim")
 
-    -- syntax  
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    -- syntax
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     -- lsp
     use('neovim/nvim-lspconfig')
@@ -93,7 +93,6 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-cmdline")
     use('hrsh7th/nvim-cmp')
     use('hrsh7th/cmp-nvim-lua')
-    use("saadparwaiz1/cmp_luasnip")
 
     -- snippets
     use("L3MON4D3/LuaSnip")
@@ -102,6 +101,12 @@ return packer.startup(function(use)
 
     -- formatting
     use("jose-elias-alvarez/null-ls.nvim")
+
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
 
     -- chatGPT
     -- use({
@@ -121,8 +126,4 @@ return packer.startup(function(use)
     if packer_bootstrap then
         require("packer").sync()
     end
-
-
 end)
-
-

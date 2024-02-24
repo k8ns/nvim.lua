@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 -- golang
 vim.keymap.set("n", "<leader>j", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
 vim.keymap.set("n", "<leader>y", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 
 
@@ -30,7 +30,6 @@ vim.keymap.set("n", "<leader>wx", ":close<CR>")    -- close current split window
 
 vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<Enter>")
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<Enter>")
--- vim.keymap.set("n", "<leader>t", ":ToggleTerm<Enter>")
 
 -- vim.keymap.set("n", "<leader>g", ":GitBlameToggle<Enter>")
 

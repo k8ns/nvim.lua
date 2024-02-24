@@ -14,5 +14,7 @@ require("k8ns.plugins.gitsigns")
 require("k8ns.plugins.rest")
 require("k8ns.plugins.gpt")
 require("k8ns.plugins.filetype")
+require("k8ns.plugins.dadbod")
+require("k8ns.plugins.harpoon")
 
 
