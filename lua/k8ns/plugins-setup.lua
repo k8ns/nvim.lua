@@ -109,13 +109,13 @@ return packer.startup(function(use)
     }
 
     -- chatGPT
-    -- use({
-    --     "jackMort/ChatGPT.nvim",
-    --     config = function() require("chatgpt").setup({}) end,
-    --     requires = {
-    --         "MunifTanjim/nui.nvim"
-    --     }
-    -- })
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function() require("chatgpt").setup({}) end,
+        requires = {
+            "MunifTanjim/nui.nvim"
+        }
+    })
 
     -- database
     use("tpope/vim-dadbod")

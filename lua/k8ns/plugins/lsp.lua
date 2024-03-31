@@ -128,8 +128,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        vim.keymap.set("n", "<leader>re", ":lua vim.lsp.buf.rename()<CR>")  -- Refactoring Rename
-        vim.keymap.set("n", "<leader>ho", ":lua vim.lsp.buf.hover()<CR>")  -- Show Info
         vim.keymap.set("n", "<leader>ds", ":lua vim.lsp.buf.document_symbol()<CR>")
         vim.keymap.set("n", "<leader>im", ":lua vim.lsp.buf.implementation()<CR>")
         vim.keymap.set("n", "<leader>ic", ":lua vim.lsp.buf.incoming_calls()<CR>")  -- Show Info

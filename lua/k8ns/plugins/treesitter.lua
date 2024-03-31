@@ -30,6 +30,7 @@ require('nvim-treesitter.configs').setup({
         "vim",
         "go",
         "http",
+        "diff",
     },
     highlight = {
         enable = true,

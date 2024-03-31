@@ -6,6 +6,7 @@ vim.g.mapleader = " "
 -- golang
 vim.keymap.set("n", "<leader>j", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
 vim.keymap.set("n", "<leader>y", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
+vim.keymap.set("n", "<leader>x", "^viwyA `xml`<Esc>i:\"\"<Esc>hpj")
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 
@@ -17,6 +18,9 @@ vim.keymap.set("v", "<leader>bd", "y:r!echo -n \"<C-r>\"\" | base64 --decode<CR>
 vim.keymap.set("n", "<leader>bn", ":bnext<Enter>")
 vim.keymap.set("n", "<leader>p", '"0p')
 vim.keymap.set("v", "<leader>p", '"0p')
+vim.keymap.set("n", "<leader>o", 'o<Esc>p')
+
+vim.keymap.set("n", "gt", ':!go test ./...<Enter>')
 
 
 
@@ -51,13 +55,15 @@ vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_g
 -- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[R]esume' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 
 vim.keymap.set('n', '<Leader>tk', '<cmd>:ChatGPT<cr>')
+vim.keymap.set('n', '<Leader>cc', '<cmd>:ChatGPTCompleteCode<cr>')
 vim.keymap.set('n', '<Leader>tj', '<cmd>:ChatGPTActAs<cr>')
 vim.keymap.set('n', '<Leader>tl', '<cmd>:ChatGPTEditWithInstructions<cr>')
 
 
-vim.keymap.set('n', '<leader>d[', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>d]', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })

@@ -10,7 +10,8 @@ filetype.setup({
             tfstate = "json",
             tf = "terraform",
             ddl = "sql",
-            up_sql = "sql"
+            sql = "sql",
+            sh = "bash"
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua
