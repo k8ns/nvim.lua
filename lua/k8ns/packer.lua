@@ -26,19 +26,8 @@ if not status then
     return
 end
 
-
-
 return packer.startup(function(use)
     use("wbthomason/packer.nvim")
-
-    -- colors
-    use {
-        "norcalli/nvim-colorizer.lua",
-        cmd = "ColorizerToggle",
-        config = function()
-            require("colorizer").setup()
-        end,
-    }
 
     -- FILES and NAVIGATION
 
@@ -54,23 +43,25 @@ return packer.startup(function(use)
     -- telescope
     use({ "nvim-lua/plenary.nvim" })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })       -- fuzzy finder
+    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })        -- fuzzy finder
 
     -- use({"notomo/cmdbuf.nvim"})
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    use({ 'nvim-lualine/lualine.nvim' })
 
-
-    -- use ("akinsho/toggleterm.nvim", {tag = '*'})
     use 'mg979/vim-visual-multi'
 
     -- CODING
 
     -- REST
-    use("rest-nvim/rest.nvim")
 
+    use({
+        "jellydn/hurl.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        },
+    })
 
     -- git
     use("lewis6991/gitsigns.nvim")
@@ -80,6 +71,12 @@ return packer.startup(function(use)
 
     -- syntax
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
 
     -- lsp
     use('neovim/nvim-lspconfig')

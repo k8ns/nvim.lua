@@ -5,6 +5,7 @@ local no_format = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
 end
 
+
 -- Capabilities
 caps.textDocument.completion.completionItem.snippetSupport = true
 
@@ -65,18 +66,14 @@ lspconfig.lua_ls.setup({
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                 version = 'LuaJIT',
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
                 globals = {'vim'},
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
             },
-            -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
                 enable = false,
             },
@@ -119,6 +116,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+vim.keymap.set('n', '<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -129,7 +129,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         vim.keymap.set("n", "<leader>ds", ":lua vim.lsp.buf.document_symbol()<CR>")
-        vim.keymap.set("n", "<leader>im", ":lua vim.lsp.buf.implementation()<CR>")
         vim.keymap.set("n", "<leader>ic", ":lua vim.lsp.buf.incoming_calls()<CR>")  -- Show Info
 
         -- Buffer local mappings.

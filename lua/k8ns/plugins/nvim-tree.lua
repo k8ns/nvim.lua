@@ -16,6 +16,7 @@ local WIDTH_RATIO = 0.5  -- You can change this too
 nvimtree.setup({
     -- change folder arrow icons
     renderer = {
+        indent_width = 4,
         icons = {
             show = {
                 file = false,
@@ -35,7 +36,7 @@ nvimtree.setup({
                     unmerged = "÷",
                     renamed = "➜",
                     untracked = "★",
-                    deleted = "d",
+                    deleted = "-",
                     ignored = "◌",
                 },
             },
