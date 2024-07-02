@@ -33,6 +33,4 @@ vim.keymap.set("n", "<leader>we", "<C-w>=")        -- make split windows equal w
 vim.keymap.set("n", "<leader>wx", ":close<CR>")    -- close current split window
 
 
-vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<Enter>")
-vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<Enter>")
 

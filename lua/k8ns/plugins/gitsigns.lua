@@ -29,6 +29,7 @@ gitsigns.setup {
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
         delay = 100,
         ignore_whitespace = false,
+        virt_text_priority = 100,
     },
     current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
     sign_priority                = 6,
@@ -42,9 +43,6 @@ gitsigns.setup {
         relative = 'cursor',
         row = 0,
         col = 1
-    },
-    yadm                         = {
-        enable = false
     },
     on_attach                    = function(bufnr)
         local gs = package.loaded.gitsigns

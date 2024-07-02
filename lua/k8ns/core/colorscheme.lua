@@ -21,7 +21,7 @@ vim.cmd([[
 
 
 -- vim.cmd("colorscheme darkula")
-vim.cmd("colorscheme hubmax-m2")
+vim.cmd("colorscheme habamax")
 
 -- vim.cmd("colorscheme blue")
 --

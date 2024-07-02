@@ -88,3 +88,6 @@ nvimtree.setup({
         ignore = false,
     },
 })
+
+vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<Enter>")
+vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<Enter>")

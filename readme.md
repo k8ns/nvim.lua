@@ -26,3 +26,5 @@ brew install luarocks
 curl -Lo phpactor.phar https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phpactor
 chmod a+x phpactor.phar
 mv phpactor.phar ~/.local/bin/phpactor
+
+npm -g install prettier

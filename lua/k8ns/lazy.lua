@@ -32,7 +32,7 @@ return lazy.setup({
 
     -- telescope
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },   -- dependency for better sorting performance
     { "nvim-telescope/telescope.nvim",            branch = "0.1.x" }, -- fuzzy finder
 
     -- use({"notomo/cmdbuf.nvim"})
@@ -43,7 +43,6 @@ return lazy.setup({
     -- CODING
 
     -- REST
-
     {
         "jellydn/hurl.nvim",
         dependencies = {
@@ -51,6 +50,7 @@ return lazy.setup({
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter"
         },
+        ft = "hurl",
     },
 
     -- git
