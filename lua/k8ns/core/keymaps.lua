@@ -33,4 +33,5 @@ vim.keymap.set("n", "<leader>we", "<C-w>=")        -- make split windows equal w
 vim.keymap.set("n", "<leader>wx", ":close<CR>")    -- close current split window
 
 
-
+-- :s/\%V\(.*\)\%V/"\1"/
+vim.keymap.set("v", "<leader>s\"", ':s/\\%V\\(.*\\)\\%V/"\1"/')

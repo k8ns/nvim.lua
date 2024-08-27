@@ -42,20 +42,28 @@ lspconfig.emmet_ls.setup({
         "scss",
         "typescriptreact",
     },
+    init_options = {
+        html = {
+            options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ["bem.enabled"] = true,
+            },
+        },
+    }
 })
 
 lspconfig.volar.setup({
-    filetypes = {'vue'}
+    filetypes = { 'vue' }
 })
 
---  Go 
+--  Go
 lspconfig.gopls.setup({})
 
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  pattern = {"*.go"},
-  callback = function ()
-    vim.lsp.buf.format()
-  end
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { "*.go" },
+    callback = function()
+        vim.lsp.buf.format()
+    end
 })
 
 -- Bash
@@ -69,7 +77,7 @@ lspconfig.lua_ls.setup({
                 version = 'LuaJIT',
             },
             diagnostics = {
-                globals = {'vim'},
+                globals = { 'vim' },
             },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -83,7 +91,7 @@ lspconfig.lua_ls.setup({
 
 
 -- dott graphviz
-lspconfig.dotls.setup{}
+lspconfig.dotls.setup {}
 
 
 -- Terraform
@@ -94,17 +102,17 @@ lspconfig.dotls.setup{}
 -- })
 
 lspconfig.terraformls.setup({
-  capabilities = caps,
+    capabilities = caps,
     filetypes = {
         "tf", "terraform", "hcl", "terraform_vars",
     }
 })
 
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
-  callback = function()
-    vim.lsp.buf.format()
-  end,
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*.tf", "*.tfvars" },
+    callback = function()
+        vim.lsp.buf.format()
+    end,
 })
 
 -- refactring
@@ -124,12 +132,11 @@ vim.keymap.set('n', '<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', { norem
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
-
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         vim.keymap.set("n", "<leader>ds", ":lua vim.lsp.buf.document_symbol()<CR>")
-        vim.keymap.set("n", "<leader>ic", ":lua vim.lsp.buf.incoming_calls()<CR>")  -- Show Info
+        vim.keymap.set("n", "<leader>ic", ":lua vim.lsp.buf.incoming_calls()<CR>") -- Show Info
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions

@@ -11,7 +11,9 @@ filetype.setup({
             tf = "terraform",
             ddl = "sql",
             sql = "sql",
-            sh = "bash"
+            sh = "bash",
+            http = "hurl",
+            html = "html",
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua

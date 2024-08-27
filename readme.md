@@ -28,3 +28,4 @@ chmod a+x phpactor.phar
 mv phpactor.phar ~/.local/bin/phpactor
 
 npm -g install prettier
+npm install -g emmet-ls

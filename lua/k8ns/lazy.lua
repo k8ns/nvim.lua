@@ -50,7 +50,7 @@ return lazy.setup({
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter"
         },
-        ft = "hurl",
+        ft = "http",
     },
 
     -- git
