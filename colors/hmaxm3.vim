@@ -1,3 +1,4 @@
+" Last login: Tue Aug 27
 " Name:         hmaxm3
 " Description:  Hubba hubba hubba.
 " Author:       Maxim Kim <habamax@gmail.com>
@@ -16,6 +17,8 @@ let g:colors_name = 'habamax'
 
 let s:t_Co = &t_Co
 
+highlight Cursor guifg=black guibg=lightgray
+
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#1c1c1c', '#af5f5f', '#5faf5f', '#af875f', '#5f87af', '#af87af', '#5f8787', '#9e9e9e', '#767676', '#d75f87', '#87d787', '#d7af87', '#5fafd7', '#d787d7', '#87afaf', '#bcbcbc']
   " Nvim uses g:terminal_color_{0-15} instead
@@ -23,6 +26,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     let g:terminal_color_{i} = g:terminal_ansi_colors[i]
   endfor
 endif
+
 hi! link Terminal Normal
 hi! link StatuslineTerm Statusline
 hi! link StatuslineTermNC StatuslineNC
@@ -84,7 +88,7 @@ hi CurSearch guifg=#ffaf5f guibg=#1c1c1c gui=reverse cterm=reverse
 hi WildMenu guifg=#1c1c1c guibg=#d7af87 gui=bold cterm=bold
 hi debugPC guifg=#1c1c1c guibg=#5f87af gui=NONE cterm=NONE
 hi debugBreakpoint guifg=#1c1c1c guibg=#d75f87 gui=NONE cterm=NONE
-hi Cursor guifg=#000000 guibg=#dadada gui=NONE cterm=NONE
+hi Cursor guifg=#000000 guibg=#dadada gui=reverse cterm=reverse
 hi lCursor guifg=#1c1c1c guibg=#5fff00 gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#303030 gui=NONE cterm=NONE
 hi CursorColumn guifg=NONE guibg=#303030 gui=NONE cterm=NONE
@@ -378,7 +382,7 @@ if s:t_Co >= 0
   hi ColorColumn term=reverse
   hi Conceal term=NONE
   hi Cursor term=reverse
-  hi CursorColumn term=NONE
+  hi CursorColumn term=reverse
   hi CursorLine term=underline
   hi CursorLineNr term=bold
   hi DiffAdd term=reverse

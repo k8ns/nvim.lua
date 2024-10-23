@@ -14,6 +14,8 @@ filetype.setup({
             sh = "bash",
             http = "hurl",
             html = "html",
+            xml = "xml",
+            mobileconfig = "xml",
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua

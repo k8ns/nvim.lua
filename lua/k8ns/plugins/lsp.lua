@@ -57,7 +57,13 @@ lspconfig.volar.setup({
 })
 
 --  Go
-lspconfig.gopls.setup({})
+lspconfig.gopls.setup({
+  settings = {
+    gopls =  {
+        buildFlags =  {"-tags=integration some-other-tags..."}
+    }
+  }
+})
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "*.go" },
