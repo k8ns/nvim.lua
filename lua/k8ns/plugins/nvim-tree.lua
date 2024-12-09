@@ -5,8 +5,8 @@ if not setup then
 end
 
 -- recommended settings from nvim-tree documentation
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 
 local HEIGHT_RATIO = 0.8 -- You can change this
@@ -42,8 +42,8 @@ nvimtree.setup({
             },
         },
     },
-    disable_netrw = true,
-    hijack_netrw = true,
+    disable_netrw = false,
+    hijack_netrw = false,
     respect_buf_cwd = true,
     sync_root_with_cwd = true,
     view = {

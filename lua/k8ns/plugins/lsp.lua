@@ -19,7 +19,7 @@ lspconfig.pyright.setup({
 lspconfig.phpactor.setup({ capabilities = caps })
 
 -- JavaScript/Typescript
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     capabilities = caps,
     on_attach = no_format
 })

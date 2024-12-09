@@ -10,6 +10,10 @@ vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Es
 vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+
 vim.keymap.set("v", "<leader>bb", "<Esc>:'<,'>:!base64<CR>")
 vim.keymap.set("v", "<leader>be", "y:r!echo -n \"<C-r>\"\" | base64<CR>")
 vim.keymap.set("v", "<leader>bd", "y:r!echo -n \"<C-r>\"\" | base64 --decode<CR>")
@@ -31,6 +35,8 @@ vim.keymap.set("n", "<leader>wv", "<C-w>v")        -- split window vertically
 vim.keymap.set("n", "<leader>wh", "<C-w>s")        -- split window horizontally
 vim.keymap.set("n", "<leader>we", "<C-w>=")        -- make split windows equal width & height
 vim.keymap.set("n", "<leader>wx", ":close<CR>")    -- close current split window
+
+vim.keymap.set('n', '<Leader>u', '<cmd>:UndotreeToggle<cr>')
 
 
 -- :s/\%V\(.*\)\%V/"\1"/

@@ -21,4 +21,5 @@ require("k8ns.plugins.filetype")
 require("k8ns.plugins.dadbod")
 require("k8ns.plugins.harpoon")
 require("k8ns.plugins.hurl")
+require("k8ns.plugins.dap")
 

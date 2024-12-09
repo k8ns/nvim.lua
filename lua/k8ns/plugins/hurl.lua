@@ -4,7 +4,7 @@ if not setup then
 end
 
 hurl.setup({
-    debug = false, -- If true, logs will be saved at ~/.local/state/nvim/hurl.nvim.log
+    debug = true, -- If true, logs will be saved at ~/.local/state/nvim/hurl.nvim.log
 
     -- Set the display mode for the response: 'split' or 'popup'
     mode = 'split',
@@ -35,4 +35,5 @@ vim.keymap.set("n", "<leader>rr", ":HurlRunnerAt<Enter>")
 vim.keymap.set("n", "<leader>re", ":HurlRunnerToEntry<Enter>")
 vim.keymap.set("n", "<leader>rt", ":HurlToggleMode<Enter>")
 vim.keymap.set("n", "<leader>rv", ":HurlVerbose<Enter>")
+vim.keymap.set("n", "<leader>rl", ":HurlShowLastResponse<Enter>")
 

@@ -20,6 +20,7 @@ end
 return lazy.setup({
 
     -- FILES and NAVIGATION
+    'nvim-tree/nvim-web-devicons',
 
     -- file types
     "nathom/filetype.nvim",
@@ -61,11 +62,14 @@ return lazy.setup({
 
     -- syntax
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    { 'nvim-treesitter/playground'},
 
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = "nvim-treesitter/nvim-treesitter",
     },
+
+    {'mbbill/undotree'},
 
     -- lsp
     'neovim/nvim-lspconfig',
@@ -94,6 +98,15 @@ return lazy.setup({
         dependencies = { { "nvim-lua/plenary.nvim" } }
     },
 
+    -- color
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {
+        "xiantang/darcula-dark.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+
     -- ChatGPT
     {
         "jackMort/ChatGPT.nvim",
@@ -108,6 +121,12 @@ return lazy.setup({
             "nvim-telescope/telescope.nvim"
         }
     },
+
+    -- debug
+    'mfussenegger/nvim-dap',
+    'leoluz/nvim-dap-go',
+    'theHamsta/nvim-dap-virtual-text',
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
 
     -- database
     "tpope/vim-dadbod",
