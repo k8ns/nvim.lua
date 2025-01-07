@@ -39,8 +39,6 @@ return lazy.setup({
     -- use({"notomo/cmdbuf.nvim"})
     { 'nvim-lualine/lualine.nvim' },
 
-    'mg979/vim-visual-multi',
-
     -- CODING
 
     -- REST
@@ -100,12 +98,6 @@ return lazy.setup({
 
     -- color
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-        "xiantang/darcula-dark.nvim",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-    },
 
     -- ChatGPT
     {
