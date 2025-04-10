@@ -16,7 +16,15 @@ lspconfig.pyright.setup({
 })
 
 -- PHP
-lspconfig.phpactor.setup({ capabilities = caps })
+lspconfig.phpactor.setup({
+    capabilities = caps,
+    init_options = {
+        ["logging.level"] = "error", -- or "error"
+        ["logging.enabled"] = false,
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
+    },
+})
 
 -- JavaScript/Typescript
 lspconfig.ts_ls.setup({
@@ -29,6 +37,17 @@ lspconfig.rust_analyzer.setup({
     capabilities = caps,
     on_attach = no_format
 })
+
+-- HTML
+local caphtml = vim.lsp.protocol.make_client_capabilities()
+caphtml.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.html.setup({
+    capabilities = caps,
+})
+
+-- HTMX
+lspconfig.htmx.setup {}
 
 -- Emmet
 lspconfig.emmet_ls.setup({
@@ -58,11 +77,11 @@ lspconfig.volar.setup({
 
 --  Go
 lspconfig.gopls.setup({
-  settings = {
-    gopls =  {
-        buildFlags =  {"-tags=integration some-other-tags..."}
+    settings = {
+        gopls = {
+            buildFlags = { "-tags=integration some-other-tags..." }
+        }
     }
-  }
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -114,6 +133,22 @@ lspconfig.terraformls.setup({
     }
 })
 
+-- lspconfig.jdtls.setup({
+--   settings = {
+--     java = {
+--       configuration = {
+--         runtimes = {
+--           {
+--             name = "JavaSE-21",
+--             path = "/opt/jdk-21",
+--             default = true,
+--           }
+--         }
+--       }
+--     }
+--   }
+-- })
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.tf", "*.tfvars" },
     callback = function()
@@ -125,10 +160,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 --
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.keymap.set('n', '<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })

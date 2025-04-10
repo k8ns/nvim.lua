@@ -10,5 +10,5 @@ gpt.setup({
 -- chatGPT
 vim.keymap.set('n', '<Leader>tk', '<cmd>:ChatGPT<cr>')
 vim.keymap.set('n', '<Leader>cc', '<cmd>:ChatGPTCompleteCode<cr>')
-vim.keymap.set('n', '<Leader>tj', '<cmd>:ChatGPTActAs<cr>')
+-- vim.keymap.set('n', '<Leader>tj', '<cmd>:ChatGPTActAs<cr>')
 vim.keymap.set('n', '<Leader>tl', '<cmd>:ChatGPTEditWithInstructions<cr>')

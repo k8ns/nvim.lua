@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 -- vim.keymap.set("n", "j", "jzz")
 -- vim.keymap.set("n", "k", "kzz")
 
-vim.keymap.set("n", "<leader>t", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
--- vim.keymap.set("n", "<leader>y", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
+vim.keymap.set("n", "<leader>tj", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
+vim.keymap.set("n", "<leader>ty", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
 -- vim.keymap.set("n", "<leader>x", "^viwyA `xml`<Esc>i:\"\"<Esc>hpj")
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
 vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
@@ -31,6 +31,8 @@ vim.keymap.set('n', '<leader>ex', ':execute "!".getline(".")<CR>', { noremap = t
 vim.keymap.set('n', '<leader>ec', ':execute getline(".")<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>rx', ':execute "r!".getline(".")<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>sr', ':source ~/.config/nvim/init.lua<cr>', { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>nh", ":noh<Enter>")
 
 vim.keymap.set("n", "<leader>wv", "<C-w>v")     -- split window vertically
@@ -48,3 +50,5 @@ vim.keymap.set('n', '<leader>k', '<cmd>cprev<cr>zz')
 
 -- :s/\%V\(.*\)\%V/"\1"/
 vim.keymap.set("v", "<leader>s\"", ':s/\\%V\\(.*\\)\\%V/"\1"/')
+
+

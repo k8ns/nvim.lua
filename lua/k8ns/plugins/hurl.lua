@@ -27,6 +27,7 @@ hurl.setup({
             '--parser',
             'html',
         },
+        yaml = {},
     },
 })
 

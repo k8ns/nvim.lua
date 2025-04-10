@@ -1,27 +1,27 @@
 -- import telescope plugin safely
 local telescope_setup, telescope = pcall(require, "telescope")
 if not telescope_setup then
-  return
+    return
 end
 
 -- import telescope actions safely
 local actions_setup, actions = pcall(require, "telescope.actions")
 if not actions_setup then
-  return
+    return
 end
 
 -- configure telescope
 telescope.setup({
-  -- configure custom mappings
-  -- defaults = {
-  --   mappings = {
-  --     i = {
-  --       ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-  --       ["<C-j>"] = actions.move_selection_next, -- move to next result
-  --       ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-  --     },
-  --   },
-  -- },
+    -- configure custom mappings
+    -- defaults = {
+    --   mappings = {
+    --     i = {
+    --       ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+    --       ["<C-j>"] = actions.move_selection_next, -- move to next result
+    --       ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
+    --     },
+    --   },
+    -- },
 })
 
 telescope.load_extension("fzf")
@@ -36,8 +36,12 @@ vim.keymap.set('n', '<leader>fs', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>fa', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end, { desc = '[S]earch [G]rep' })
+vim.keymap.set('n', '<leader>fa',
+    function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end,
+    { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>fg',
+    function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end,
+    { desc = '[S]earch [G]rep' })
 -- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
@@ -47,4 +51,5 @@ vim.keymap.set('n', '<leader>fc', require('telescope.builtin').lsp_incoming_call
 vim.keymap.set('n', '<leader>fo', require('telescope.builtin').lsp_outgoing_calls, { desc = 'LSP [O]utgoing calls' })
 vim.keymap.set('n', '<leader>fe', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').lsp_document_symbols, { desc = 'Document Symbols' })
-vim.keymap.set('n', '<leader>fu', require('telescope.builtin').lsp_references, { desc = 'Document Symbols' })
+vim.keymap.set('n', '<leader>fu', require('telescope.builtin').lsp_references, { desc = 'References' })
+vim.keymap.set('n', '<leader>fs', require('telescope.builtin').git_status, { desc = 'git status' })
