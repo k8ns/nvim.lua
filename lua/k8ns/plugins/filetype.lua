@@ -16,6 +16,7 @@ filetype.setup({
             html = "html",
             xml = "xml",
             mobileconfig = "xml",
+            conf = "cfg",
         },
         -- literal = {
         --     -- Set the filetype of files named "MyBackupFile" to lua

@@ -51,5 +51,5 @@ vim.keymap.set('n', '<leader>fc', require('telescope.builtin').lsp_incoming_call
 vim.keymap.set('n', '<leader>fo', require('telescope.builtin').lsp_outgoing_calls, { desc = 'LSP [O]utgoing calls' })
 vim.keymap.set('n', '<leader>fe', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').lsp_document_symbols, { desc = 'Document Symbols' })
-vim.keymap.set('n', '<leader>fu', require('telescope.builtin').lsp_references, { desc = 'References' })
 vim.keymap.set('n', '<leader>fs', require('telescope.builtin').git_status, { desc = 'git status' })
+vim.keymap.set('n', '<leader>fu', require('telescope.builtin').lsp_references, { desc = 'References',  noremap = true, silent = true  })

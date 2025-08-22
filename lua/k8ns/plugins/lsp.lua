@@ -17,13 +17,31 @@ lspconfig.pyright.setup({
 
 -- PHP
 lspconfig.phpactor.setup({
-    capabilities = caps,
+    -- capabilities = caps,
+    root_dir = function(_)
+        return vim.loop.cwd()
+    end,
     init_options = {
         ["logging.level"] = "error", -- or "error"
         ["logging.enabled"] = false,
+        ["language_server.diagnostics_on_update"] = false,
+        ["language_server.diagnostics_on_open"] = false,
+        ["language_server.diagnostics_on_save"] = false,
         ["language_server_phpstan.enabled"] = false,
         ["language_server_psalm.enabled"] = false,
+        ["requireDocblock"] = false,
+        ["checkMissingParamDoc"] = false,
     },
+    -- on_attach = on_attach,
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+        -- vim.lsp.handlers["window/logMessage"] = function(err, method, params, client_id)
+        --     return
+        -- end
+        vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
+            return
+        end
+    end
 })
 
 -- JavaScript/Typescript

@@ -39,3 +39,4 @@ npm install -g emmet-ls
 brew install vscode-langservers-extracted
 cargo install htmx-lsp
 
+brew install hashicorp/tap/terraform-ls   

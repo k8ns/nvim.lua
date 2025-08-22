@@ -19,6 +19,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>bb", "<Esc>:'<,'>:!base64<CR>")
 vim.keymap.set("v", "<leader>be", "y:r!echo -n \"<C-r>\"\" | base64<CR>")
 vim.keymap.set("v", "<leader>bd", "y:r!echo -n \"<C-r>\"\" | base64 --decode<CR>")
+vim.keymap.set("v", "<leader>c", [[:s/\%V\([a-z]\)\([A-Z]\)/\1-\L\2/g<CR>]])
+
 
 vim.keymap.set("n", "<leader>bn", ":bnext<Enter>")
 vim.keymap.set("n", "<leader>p", '"0p')
@@ -50,5 +52,15 @@ vim.keymap.set('n', '<leader>k', '<cmd>cprev<cr>zz')
 
 -- :s/\%V\(.*\)\%V/"\1"/
 vim.keymap.set("v", "<leader>s\"", ':s/\\%V\\(.*\\)\\%V/"\1"/')
+
+
+vim.keymap.set('n', 'gf', function()
+  local file = vim.fn.expand('<cfile>')
+  if vim.fn.filereadable(file) == 0 and vim.fn.stridx(file, '/') == 0 then
+    -- If file is not found and starts with "/", try relative to cwd
+    file = '.' .. file
+  end
+  vim.cmd('edit ' .. file)
+end)
 
 
