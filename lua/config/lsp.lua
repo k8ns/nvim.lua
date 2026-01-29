@@ -1,75 +1,87 @@
-local lspconfig = require("lspconfig")
 local caps = vim.lsp.protocol.make_client_capabilities()
 caps = require("cmp_nvim_lsp").default_capabilities(caps)
-local no_format = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-end
+
+-- local no_format = function(client, bufnr)
+--     -- client.resolved_capabilities.document_formatting = false
+--     client.server_capabilities.documentFormattingProvider = false
+--     client.server_capabilities.documentRangeFormattingProvider = false
+-- end
 
 
 -- Capabilities
-caps.textDocument.completion.completionItem.snippetSupport = true
+-- caps.textDocument.completion.completionItem.snippetSupport = true
+
+
 
 -- Python
-lspconfig.pyright.setup({
-    capabilities = caps,
-    on_attach = no_format
-})
+vim.lsp.enable('pyright')
+-- vim.lsp.config('pyright', {
+--     capabilities = caps,
+--     on_attach = no_format
+-- })
 
 -- PHP
-lspconfig.phpactor.setup({
+-- vim.lsp.enable('intelephense')
+vim.lsp.enable('phpactor')
+
+vim.lsp.config('phpactor', {
     -- capabilities = caps,
-    root_dir = function(_)
-        return vim.loop.cwd()
-    end,
+    -- root_dir = function(_)
+    --     return vim.loop.cwd()
+    -- end,
     init_options = {
-        ["logging.level"] = "error", -- or "error"
-        ["logging.enabled"] = false,
-        ["language_server.diagnostics_on_update"] = false,
-        ["language_server.diagnostics_on_open"] = false,
-        ["language_server.diagnostics_on_save"] = false,
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
-        ["requireDocblock"] = false,
-        ["checkMissingParamDoc"] = false,
+        -- ["logging.level"] = "error", -- or "error"
+        -- ["logging.enabled"] = false,
+        -- ["language_server.diagnostics_on_update"] = false,
+        -- ["language_server.diagnostics_on_open"] = true,
+        -- ["language_server.diagnostics_on_save"] = true,
+        ["language_server_phpstan.enabled"] = true,
+        -- ["language_server_psalm.enabled"] = false,
+        -- ["requireDocblock"] = false,
+        -- ["checkMissingParamDoc"] = false,
     },
-    -- on_attach = on_attach,
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = true
-        -- vim.lsp.handlers["window/logMessage"] = function(err, method, params, client_id)
-        --     return
-        -- end
-        vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
-            return
-        end
-    end
+    -- on_attach = no_format,
+    -- on_attach = function(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = true
+    --     -- vim.lsp.handlers["window/logMessage"] = function(err, method, params, client_id)
+    --     --     return
+    --     -- end
+    --     -- vim.lsp.handlers["window/showMessage"] = function(err, method, params, client_id)
+    --     --     return
+    --     -- end
+    -- end
 })
 
 -- JavaScript/Typescript
-lspconfig.ts_ls.setup({
-    capabilities = caps,
-    on_attach = no_format
-})
+-- vim.lsp.enable('ts_ls')
+-- lspconfig.ts_ls.setup({
+--     capabilities = caps,
+--     on_attach = no_format
+-- })
 
 -- Rust
-lspconfig.rust_analyzer.setup({
-    capabilities = caps,
-    on_attach = no_format
-})
+-- vim.lsp.enable('rust_analyzer')
+-- lspconfig.rust_analyzer.setup({
+--     capabilities = caps,
+--     on_attach = no_format
+-- })
 
 -- HTML
-local caphtml = vim.lsp.protocol.make_client_capabilities()
-caphtml.textDocument.completion.completionItem.snippetSupport = true
+-- local caphtml = vim.lsp.protocol.make_client_capabilities()
+-- caphtml.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup({
-    capabilities = caps,
+vim.lsp.enable('html')
+vim.lsp.config('html', {
+    -- capabilities = caps,
 })
-
--- HTMX
-lspconfig.htmx.setup {}
+--
+-- -- HTMX
+vim.lsp.enable('htmx')
 
 -- Emmet
-lspconfig.emmet_ls.setup({
-    capabilities = caps,
+vim.lsp.enable('emmet_ls')
+vim.lsp.config('emmet_ls', {
+    -- capabilities = caps,
     filetypes = {
         "css",
         "html",
@@ -89,12 +101,10 @@ lspconfig.emmet_ls.setup({
     }
 })
 
-lspconfig.volar.setup({
-    filetypes = { 'vue' }
-})
-
 --  Go
-lspconfig.gopls.setup({
+vim.lsp.enable('gopls')
+vim.lsp.config('gopls', {
+    capabilities = caps,
     settings = {
         gopls = {
             buildFlags = { "-tags=integration some-other-tags..." }
@@ -110,10 +120,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 -- Bash
-lspconfig.bashls.setup({})
+vim.lsp.enable('bashls')
 
 -- Lua
-lspconfig.lua_ls.setup({
+vim.lsp.enable('lua_ls')
+vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
             runtime = {
@@ -134,47 +145,44 @@ lspconfig.lua_ls.setup({
 
 
 -- dott graphviz
-lspconfig.dotls.setup {}
+vim.lsp.enable('dotls')
 
 
 -- Terraform
--- lspconfig.terraformls.setup({
+
+-- vim.lsp.enable('terraformls')
+-- vim.lsp.config('terraformls', {
+--     capabilities = caps,
 --     filetypes = {
---         "tf", "terraform", "hcl", "terraform-vars",
+--         "tf", "terraform", "hcl", "terraform_vars",
 --     }
 -- })
 
-lspconfig.terraformls.setup({
-    capabilities = caps,
-    filetypes = {
-        "tf", "terraform", "hcl", "terraform_vars",
-    }
-})
-
--- lspconfig.jdtls.setup({
---   settings = {
---     java = {
---       configuration = {
---         runtimes = {
---           {
---             name = "JavaSE-21",
---             path = "/opt/jdk-21",
---             default = true,
---           }
+-- vim.lsp.enable('jdtls')
+-- vim.lsp.config('jdtls', {
+--     settings = {
+--         java = {
+--             configuration = {
+--                 runtimes = {
+--                     {
+--                         name = "JavaSE-21",
+--                         path = "/opt/jdk-21",
+--                         default = true,
+--                     }
+--                 }
+--             }
 --         }
---       }
 --     }
---   }
 -- })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*.tf", "*.tfvars" },
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     pattern = { "*.tf", "*.tfvars" },
+--     callback = function()
+--         vim.lsp.buf.format()
+--     end,
+-- })
 
--- refactring
+-- refactoring
 --
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
