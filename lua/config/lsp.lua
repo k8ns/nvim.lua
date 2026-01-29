@@ -25,7 +25,7 @@ vim.lsp.enable('pyright')
 vim.lsp.enable('phpactor')
 
 vim.lsp.config('phpactor', {
-    -- capabilities = caps,
+    capabilities = caps,
     -- root_dir = function(_)
     --     return vim.loop.cwd()
     -- end,
@@ -72,16 +72,19 @@ vim.lsp.config('phpactor', {
 
 vim.lsp.enable('html')
 vim.lsp.config('html', {
-    -- capabilities = caps,
+    capabilities = caps,
 })
 --
 -- -- HTMX
 vim.lsp.enable('htmx')
+vim.lsp.config('htmx', {
+    capabilities = caps,
+})
 
 -- Emmet
 vim.lsp.enable('emmet_ls')
 vim.lsp.config('emmet_ls', {
-    -- capabilities = caps,
+    capabilities = caps,
     filetypes = {
         "css",
         "html",
@@ -121,10 +124,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- Bash
 vim.lsp.enable('bashls')
+vim.lsp.config('bashls', {
+    capabilities = caps,
+})
 
 -- Lua
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
+    capabilities = caps,
     settings = {
         Lua = {
             runtime = {
