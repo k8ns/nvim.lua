@@ -20,14 +20,6 @@ local lazy = require("lazy")
 lazy.setup({
     spec = {
         { import = "plugins" },
-
-        { "nvim-tree/nvim-web-devicons" },
-        { "christoomey/vim-tmux-navigator" },
-        {
-            "mbbill/undotree",
-            cmd = "UndotreeToggle",
-        },
-        { "neovim/nvim-lspconfig" },
     },
 
     defaults = {

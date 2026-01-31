@@ -3,6 +3,9 @@ local WIDTH_RATIO = 0.5  -- You can change this too
 
 return {
     "nvim-tree/nvim-tree.lua",
+    dependencies = {
+        { "nvim-tree/nvim-web-devicons" },
+    },
     cmd = { "NvimTreeToggle", "NvimTreeOpen" },
     opts = {
         -- change folder arrow icons
