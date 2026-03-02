@@ -34,6 +34,11 @@ lazy.setup({
         enabled = true,
     },
 
+    change_detection = {
+        enabled = false,
+        notify = false,
+    },
+
     performance = {
         rtp = {
             disabled_plugins = {
