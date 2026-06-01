@@ -7,7 +7,7 @@ return {
     },
     ft = "http",
     opts = {
-        debug = true, -- If true, logs will be saved at ~/.local/state/nvim/hurl.nvim.log
+        debug = false, -- If true, logs will be saved at ~/.local/state/nvim/hurl.nvim.log
 
         -- Set the display mode for the response: 'split' or 'popup'
         mode = 'split',

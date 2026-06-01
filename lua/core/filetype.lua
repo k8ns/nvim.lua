@@ -11,6 +11,7 @@ vim.filetype.add({
         mobileconfig = "xml",
         conf         = "cfg",
         phtml        = "phtml",
+        swift        = "swift",
     },
 
     filename = {

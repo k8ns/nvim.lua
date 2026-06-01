@@ -1,6 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
 
         dependencies = {
@@ -22,8 +23,6 @@ return {
                 "javascript",
                 "json",
                 "lua",
-                "markdown",
-                "markdown_inline",
                 "php",
                 "hurl",
                 "python",

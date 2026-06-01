@@ -1,21 +1,20 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- vim.keymap.set("n", "j", "jzz")
--- vim.keymap.set("n", "k", "kzz")
+vim.keymap.set("n", "<leader>tj", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j", {desc = "golang: add json tag"})
+vim.keymap.set("n", "<leader>ty", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j", {desc = "golang: add yaml tag"})
+vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Esc>", {desc = "golang: print return row.Err() err"})
+vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>", {desc = "golang: print return err"})
 
-vim.keymap.set("n", "<leader>tj", "^viwyA `json`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
-vim.keymap.set("n", "<leader>ty", "^viwyA `yaml`<Esc>i:\"<Esc>pb~$i\"<Esc>j")
--- vim.keymap.set("n", "<leader>x", "^viwyA `xml`<Esc>i:\"\"<Esc>hpj")
-vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
-vim.keymap.set("n", "<leader>er", "oif err := rows.Err(); err != nil {<CR>}<Esc>Oreturn nil, err<Esc>")
+vim.keymap.set("n", "<leader>bn", ":bnext<Enter>")
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "move selected line down"})
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "move selected line up"})
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- :let @+ = expand('%:p')
 
--- vim.keymap.set("n", "n", "nzzzv")
--- vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<leader>s2", ":%!sort -n -d -k2,2<CR>", { desc = "Sort by column 2 numeric" })
+vim.keymap.set("n", "<leader>s3", ":%!sort -n -d -k3,3<CR>", { desc = "Sort by column 3 numeric" })
 
 vim.keymap.set("v", "<leader>bb", "<Esc>:'<,'>:!base64<CR>")
 vim.keymap.set("v", "<leader>be", "y:r!echo -n \"<C-r>\"\" | base64<CR>")
@@ -45,9 +44,6 @@ vim.keymap.set("n", "<leader>wx", ":close<CR>") -- close current split window
 
 vim.keymap.set('n', '<Leader>u', '<cmd>:UndotreeToggle<cr>')
 
-
--- vim.keymap.set('n', '<C-j>', '<cmd>cnext<cr>zz')
--- vim.keymap.set('n', '<C-k>', '<cmd>cprev<cr>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>cnext<cr>zz')
 vim.keymap.set('n', '<leader>k', '<cmd>cprev<cr>zz')
 

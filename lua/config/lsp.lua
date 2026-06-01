@@ -11,7 +11,35 @@ caps = require("cmp_nvim_lsp").default_capabilities(caps)
 -- Capabilities
 -- caps.textDocument.completion.completionItem.snippetSupport = true
 
+vim.lsp.config('sourcekit', {
+    capabilities = caps,
+})
+vim.lsp.enable('sourcekit')
 
+vim.lsp.config('ltex', {
+  cmd = { 'ltex-ls' },
+
+  filetypes = {
+    'markdown',
+    'text',
+    'tex',
+    'plaintex',
+    'gitcommit',
+    'org',
+  },
+
+  settings = {
+    ltex = {
+      language = 'en-GB',
+
+      additionalRules = {
+        enablePickyRules = true,
+      },
+    },
+  },
+})
+
+vim.lsp.enable('ltex')
 
 -- Python
 vim.lsp.enable('pyright')
@@ -22,7 +50,6 @@ vim.lsp.enable('pyright')
 
 -- PHP
 -- vim.lsp.enable('intelephense')
-vim.lsp.enable('phpactor')
 
 vim.lsp.config('phpactor', {
     capabilities = caps,
@@ -51,13 +78,19 @@ vim.lsp.config('phpactor', {
     --     -- end
     -- end
 })
+vim.lsp.enable('phpactor')
+
 
 -- JavaScript/Typescript
--- vim.lsp.enable('ts_ls')
--- lspconfig.ts_ls.setup({
---     capabilities = caps,
---     on_attach = no_format
--- })
+vim.lsp.config('tsserver', {
+    capabilities = caps,
+    filetypes = {
+        "javascript",
+        "js",
+    },
+})
+vim.lsp.enable('tsserver')
+
 
 -- Rust
 -- vim.lsp.enable('rust_analyzer')
@@ -70,19 +103,18 @@ vim.lsp.config('phpactor', {
 -- local caphtml = vim.lsp.protocol.make_client_capabilities()
 -- caphtml.textDocument.completion.completionItem.snippetSupport = true
 
-vim.lsp.enable('html')
 vim.lsp.config('html', {
     capabilities = caps,
 })
+vim.lsp.enable('html')
 --
 -- -- HTMX
-vim.lsp.enable('htmx')
 vim.lsp.config('htmx', {
     capabilities = caps,
 })
+vim.lsp.enable('htmx')
 
 -- Emmet
-vim.lsp.enable('emmet_ls')
 vim.lsp.config('emmet_ls', {
     capabilities = caps,
     filetypes = {
@@ -103,9 +135,9 @@ vim.lsp.config('emmet_ls', {
         },
     }
 })
+vim.lsp.enable('emmet_ls')
 
 --  Go
-vim.lsp.enable('gopls')
 vim.lsp.config('gopls', {
     capabilities = caps,
     settings = {
@@ -114,6 +146,7 @@ vim.lsp.config('gopls', {
         }
     }
 })
+vim.lsp.enable('gopls')
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "*.go" },
@@ -123,13 +156,12 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 -- Bash
-vim.lsp.enable('bashls')
 vim.lsp.config('bashls', {
     capabilities = caps,
 })
+vim.lsp.enable('bashls')
 
 -- Lua
-vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
     capabilities = caps,
     settings = {
@@ -149,6 +181,7 @@ vim.lsp.config('lua_ls', {
         },
     },
 })
+vim.lsp.enable('lua_ls')
 
 
 -- dott graphviz
