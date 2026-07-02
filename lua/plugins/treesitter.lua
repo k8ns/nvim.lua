@@ -1,11 +1,12 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         lazy = false,
         build = ":TSUpdate",
 
         dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
+            { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
             -- add autotag plugin only if you actually use it
             "windwp/nvim-ts-autotag",
         },
@@ -55,65 +56,62 @@ return {
             },
 
             textobjects = {
-                enable = true,
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true, -- jump forward automatically
+                select = {
+                    enable = true,
+                    lookahead = true,     -- jump forward automatically
 
-                        keymaps = {
-                            -- functions & methods
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
+                    keymaps = {
+                        -- functions & methods
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
 
-                            -- structs & interfaces
-                            ["as"] = "@type.outer",
-                            ["is"] = "@type.inner",
+                        -- structs & interfaces
+                        ["as"] = "@type.outer",
+                        ["is"] = "@type.inner",
 
-                            ["ai"] = "@interface.outer",
-                            ["ii"] = "@interface.inner",
+                        ["ai"] = "@interface.outer",
+                        ["ii"] = "@interface.inner",
 
-                            -- blocks (if / for / switch)
-                            ["ab"] = "@block.outer",
-                            ["ib"] = "@block.inner",
+                        -- blocks (if / for / switch)
+                        ["ab"] = "@block.outer",
+                        ["ib"] = "@block.inner",
 
-                            -- parameters
-                            ["ap"] = "@parameter.outer",
-                            ["ip"] = "@parameter.inner",
+                        -- parameters
+                        ["ap"] = "@parameter.outer",
+                        ["ip"] = "@parameter.inner",
 
-                            -- comments (huge in Go)
-                            ["ac"] = "@comment.outer",
-                            ["ic"] = "@comment.inner",
-                        },
+                        -- comments (huge in Go)
+                        ["ac"] = "@comment.outer",
+                        ["ic"] = "@comment.inner",
+                    },
+                },
+
+                move = {
+                    enable = true,
+                    set_jumps = true,
+
+                    goto_next_start = {
+                        ["]f"] = "@function.outer",
+                        ["]t"] = "@type.outer",
                     },
 
-                    move = {
-                        enable = true,
-                        set_jumps = true,
+                    goto_previous_start = {
+                        ["[f"] = "@function.outer",
+                        ["[t"] = "@type.outer",
+                    },
+                },
 
-                        goto_next_start = {
-                            ["]f"] = "@function.outer",
-                            ["]t"] = "@type.outer",
-                        },
+                swap = {
+                    enable = true,
 
-                        goto_previous_start = {
-                            ["[f"] = "@function.outer",
-                            ["[t"] = "@type.outer",
-                        },
+                    swap_next = {
+                        ["<leader>sp"] = "@parameter.inner",
                     },
 
-                    swap = {
-                        enable = true,
-
-                        swap_next = {
-                            ["<leader>sp"] = "@parameter.inner",
-                        },
-
-                        swap_previous = {
-                            ["<leader>sP"] = "@parameter.inner",
-                        },
+                    swap_previous = {
+                        ["<leader>sP"] = "@parameter.inner",
                     },
-                }
+                },
             },
 
             autotag = {
