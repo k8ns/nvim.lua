@@ -6,7 +6,7 @@ return {
         build = ":TSUpdate",
 
         dependencies = {
-            { "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
+            "nvim-treesitter/nvim-treesitter-textobjects",
             -- add autotag plugin only if you actually use it
             "windwp/nvim-ts-autotag",
         },
@@ -41,10 +41,13 @@ return {
                 "go",
                 "http",
                 "diff",
+                "markdown",
+                "markdown_inline",
             },
 
             highlight = {
                 enable = true,
+                -- additional_vim_regex_highlighting = true,
             },
 
             indent = {
@@ -55,10 +58,14 @@ return {
                 enable = true,
             },
 
+            injections = {
+                enable = true,
+            },
+
             textobjects = {
                 select = {
                     enable = true,
-                    lookahead = true,     -- jump forward automatically
+                    lookahead = true, -- jump forward automatically
 
                     keymaps = {
                         -- functions & methods
